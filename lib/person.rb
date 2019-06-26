@@ -10,16 +10,6 @@ class Person
 		@bank_account = 25
 		@happiness = 8
 		@hygiene = 8
-		# if happiness >= 0
-		# 	@happiness = happiness
-		# elsif 
-		# 	happiness <= 10
-		# 	@happiness = happiness
-		# elsif happiness > 10
-		# 	happiness = 10
-		# else
-		# 	happiness = 8	
-		# end
 	end 
 
 	def happiness
@@ -64,14 +54,39 @@ class Person
 	end
 
 	def take_bath
-		@hygiene += 4
+		#take hygiene & increase by 4
+		get_clean = self.hygiene + 4
+		self.hygiene = get_clean
 		"♪ Rub-a-dub just relaxing in the tub ♫"
 	end
 
+	def work_out
+		get_dirty = self.hygiene - 3
+		self.hygiene = get_dirty
 
+		get_happy = self.happiness + 2
+		self.happiness = get_happy
+		"♪ another one bites the dust ♫"
 
+	end
 
+	def call_friend(friend)
+		phone_call = self.happiness + 3
+		self.happiness = phone_call
+		friend.happiness = friend.happiness + 3
+		"Hi #{friend.name}! It's #{self.name}. How are you?"
+	end
 
+	def start_conversation(friend, topic)
+		if topic == "politics"
+			return "blah blah partisan blah lobbyist"
+			politics_call = self.happiness - 2
+			self.happiness = politics_call
+
+			friend_feeling = friend.happiness - 2
+			friend.happiness = friend_feeling
+		end
+	end
 
 
 
